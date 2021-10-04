@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practicando Scroll con javascript</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="icono.min.css">
+</head>
+<body>
+    <section class="seccion-1">
+        <div class="container">
+            <h2 class="titulo">Lorem, ipsum dolor.</h2>
+            <div class="contenido">
+                <div class="img" id="img1">
+                    <img src="avion.jpg" alt="Un avion">
+                </div>
+                <div class="texto" id="texto">
+                    <h3>Lorem, ipsum.</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro aliquid, consectetur quibusdam ducimus delectus natus tempore sequi, doloribus dignissimos perferendis vel aliquam laborum libero fugit. Architecto cupiditate iusto quidem! Odio!</p>
+                </div>
+            </div>
+            <div class="iconos">
+                <a href="#" class="icon"><i class="icono-gear" id="icon1"></i></a>
+                <a href="#" class="icon"><i class="icono-sliders" id="icon2"></i></a>
+                <a href="#" class="icon"><i class="icono-forbidden" id="icon3"></i></a>
+                <a href="#" class="icon"><i class="icono-filter" id="icon4"></i></a>
+            </div>
+        </div>
+    </section>
+    <section class="seccion-2">
+        <div class="container">
+            <h3 class="titulo2">Lorem, ipsum.</h3>
+            <div class="contenido">
+                <div class="info">
+                    <h4 class="info-titulo">Lorem</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, nulla? Repellat consectetur nisi vero similique, corrupti sed magni? Odit amet fugiat rerum deserunt minus molestias aspernatur, soluta cum ab itaque!</p>
+
+                </div>
+                <div class="img">
+                    <img src="avion.jpg" alt="avion">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="seccion-3">
+        <div class="container">
+            <h3 class="titulo2">Lorem, ipsum.</h3>
+            <div class="contenido">
+                <div class="media">
+                    <li><a href="#" id="cont-animado1"><i class="icono-gear" id="icono-animado1"></i> Logotipos</a></li>
+                    <li><a href="#" id="cont-animado2"><i class="icono-market" id="icono-animado2"></i> Logotipos</a></li>
+                    <li><a href="#" id="cont-animado3"><i class="icono-support" id="icono-animado3"></i> Logotipos</a></li>
+                    <li><a href="#" id="cont-animado4"><i class="icono-commentEmpty" id="icono-animado4"></i> Logotipos</a></li>
+                    <li><a href="#" id="cont-animado5"><i class="icono-sun" id="icono-animado5"></i> Logotipos</a></li>
+                </div>
+                <div class="img">
+                    <img src="avion.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section> 
+    <script>
+        let animado = document.querySelectorAll(".seccion-3");
+        const titulo = document.querySelector(".titulo");
+        const imag1 = document.getElementById('img1');
+        const texto = document.getElementById('texto');
+        const icon1 = document.getElementById('icon1');
+        const icon2 = document.getElementById('icon2');
+        const icon3 = document.getElementById('icon3');
+        const icon4 = document.getElementById('icon4');
+        const contlogo1 = document.getElementById('cont-animado1');
+        const contlogo2 = document.getElementById('cont-animado2');
+        const contlogo3 = document.getElementById('cont-animado3');
+        const contlogo4 = document.getElementById('cont-animado4');
+        const contlogo5 = document.getElementById('cont-animado5');
+        const logo1 = document.getElementById('icono-animado1');
+        const logo2 = document.getElementById('icono-animado2');
+        const logo3 = document.getElementById('icono-animado3');
+        const logo4 = document.getElementById('icono-animado4');
+        const logo5 = document.getElementById('icono-animado5');
+        function mostrarScroll(){
+            let scrolltop = document.documentElement.scrollTop;
+            for(var i=0; i < animado.length; i++){
+                let alturaelem = animado[i].offsetTop;
+                if(alturaelem - 200 < scrolltop){
+                    animado[i].style.opacity = 1;
+                    animado[i].classList.add("mostrar-arriba");
+                    setTimeout(()=>{
+                        logo1.style.transform = "translateX(0)";
+                        logo1.style.opacity = "1";
+                        logo5.style.transform = "translateX(0)";
+                        logo5.style.opacity = "1";
+                    }, 600);
+                    setTimeout(()=>{
+                        contlogo1.style.transform = "translateX(0)";
+                        contlogo1.style.opacity = "1";
+                        contlogo5.style.transform = "translateX(0)";
+                        contlogo5.style.opacity = "1";
+                    }, 500);
+                    setTimeout(()=>{
+                        logo2.style.transform = "translateX(0)";
+                        logo2.style.opacity = "1";
+                        logo4.style.transform = "translateX(0)";
+                        logo4.style.opacity = "1";
+                    }, 800);
+                    setTimeout(()=>{
+                        contlogo2.style.transform = "translateX(0)";
+                        contlogo2.style.opacity = "1";
+                        contlogo4.style.transform = "translateX(0)";
+                        contlogo4.style.opacity = "1";
+                    }, 700);
+                    setTimeout(()=>{
+                        logo3.style.transform = "translateX(0)";
+                        logo3.style.opacity = "1";
+                    }, 900);
+                    setTimeout(()=>{
+                        contlogo3.style.transform = "translateX(0)";
+                        contlogo3.style.opacity = "1";
+                    }, 1000);
+                }
+            }
+        }
+        window.addEventListener('scroll',mostrarScroll);
+        window.addEventListener("load",()=>{
+            setTimeout(()=>{
+                titulo.style.transform = "translateY(0)";
+                titulo.style.opacity = "1";
+                imag1.style.transform = "translateX(0)";
+                imag1.style.opacity = "1";
+                texto.style.transform = "translate(-80px, 50PX)";
+            },400);
+            setTimeout(()=>{
+                icon1.style.transform = "translateY(0)";
+                icon1.style.opacity = "1";
+            },500);
+            setTimeout(()=>{
+                icon2.style.transform = "translateY(0)";
+                icon2.style.opacity = "1";
+            },550);
+            setTimeout(()=>{
+                icon3.style.transform = "translateY(0)";
+                icon3.style.opacity = "1";
+            },600);
+            setTimeout(()=>{
+                icon4.style.transform = "translateY(0)";
+                icon4.style.opacity = "1";
+            },650);
+        });
+    </script>
+</body>
+</html>
